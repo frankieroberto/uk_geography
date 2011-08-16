@@ -12,6 +12,8 @@ class Area < ActiveRecord::Base
   has_many :other_names
 
   scope :regions, joins(:area_type).where(:area_types => {:name => "Region"})
+  scope :post_code_areas, joins(:area_type).where(:area_types => {:name => "Postcode Area"})
+  scope :post_code_districts, joins(:area_type).where(:area_types => {:name => "Postcode District"})
 
   accepts_nested_attributes_for :parents, :other_names
 

@@ -15,6 +15,7 @@ namespace :postcodes do
     postcode_sector_type = AreaType.find_by_name!("Postcode Sector")
     postcode_district_type = AreaType.find_by_name!("Postcode District")
 
+    areas_with_ons_codes = Area.where("ons_code is not null")
 
     counter = 1
     file = File.new(file_path, "r")
@@ -39,18 +40,20 @@ namespace :postcodes do
       [csv[0][5], csv[0][6], csv[0][14], csv[0][15]].each do |code|
 
         if !code.blank? && !(code =~ /\A[EWSLM]99999999\Z/)
-          parent_area = Area.find_by_ons_code(code)
+          parent_area = areas_with_ons_codes.select{|a| a.ons_code == code}.first
           if parent_area
             parent_areas << parent_area
           end
         end
       end
 
-      #postcode = Area.create(:name => pc.gsub(" ", ""), :area_type => postcode_type, :parents => parent_areas)
-
       parent_areas.each do |parent_area|
         postcode_district.parents << parent_area unless postcode_district.parents.include?(parent_area)
       end
+
+      parent_areas << postcode_district
+
+      postcode = Area.create(:name => pc.gsub(" ", ""), :area_type => postcode_type, :parents => parent_areas)
 
       puts counter
       counter = counter + 1

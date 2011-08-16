@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110816090144) do
+ActiveRecord::Schema.define(:version => 20110816134317) do
 
   create_table "area_types", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20110816090144) do
     t.string   "ons_code"
   end
 
+  add_index "areas", ["name", "area_type_id"], :name => "index_areas_on_name_and_area_type_id"
+  add_index "areas", ["name"], :name => "index_areas_on_name"
   add_index "areas", ["ons_code"], :name => "index_areas_on_ons_code"
 
   create_table "locations", :force => true do |t|

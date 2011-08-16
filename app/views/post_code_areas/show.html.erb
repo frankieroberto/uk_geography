@@ -1,5 +1,5 @@
 
 <article>
-  <h1>Postcode areas</h1> in <%= link_to @area.name, @area %> include <%= @area.areas.collect {|area| link_to area.name, area }.to_sentence.html_safe %>
+  <h1>Postcode areas</h1> in <%= link_to @area.name, @area %> include <%= @area.areas.post_code_areas.collect {|area| link_to area.name, area }.to_sentence.html_safe %>
 </article>
 
