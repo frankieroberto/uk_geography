@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  area_type_id: 1
+  population: 1
+
+two:
+  name: MyString
+  area_type_id: 1
+  population: 1

@@ -1,0 +1,8 @@
+
+<article>
+  <h1><%= @area.name %></h1> is a <%= @area.area_type.name %><% if @area.parents.size > 0 %> within <% end %><%= @area.parents.collect{ |parent| link_to(parent.name, parent.name)}.to_sentence.html_safe %>.
+
+
+<% if @area.ons_code %><p class="code">It has an <abbr title="Office for National Statistics">ONS</abbr> code of <%= @area.ons_code %></p><% end %>
+</article>
+

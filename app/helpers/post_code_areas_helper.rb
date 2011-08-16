@@ -1,0 +1,2 @@
+module PostCodeAreasHelper
+end

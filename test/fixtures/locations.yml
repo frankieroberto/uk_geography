@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  area_id: 1
+  parent_id: 1
+  is_partial: false
+
+two:
+  area_id: 1
+  parent_id: 1
+  is_partial: false

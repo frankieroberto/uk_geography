@@ -1,0 +1,4 @@
+
+<article>
+  Did you mean <%= @areas.collect {|area| link_to(area.name, area) + " a " + area.area_type.name}.join(" or ").html_safe %>?
+</article>
