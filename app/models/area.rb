@@ -11,6 +11,8 @@ class Area < ActiveRecord::Base
   has_many :areas, :through => :reverse_locations
   has_many :other_names
 
+  scope :regions, joins(:area_type).where(:area_types => {:name => "Region"})
+
   accepts_nested_attributes_for :parents, :other_names
 
   def to_param
