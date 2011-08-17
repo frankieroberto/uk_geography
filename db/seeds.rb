@@ -65,7 +65,7 @@
   {:ons_code => "E10000032", :name => "West Sussex", :population => 799701},
   {:ons_code => "E10000033", :name => "Wiltshire", :population => 459835},
   {:ons_code => "E10000034", :name => "Worcestershire", :population => 557426}].each do |a|
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => county)
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => county, :population => a[:population])
     area.parents << england
   end
 
@@ -131,7 +131,7 @@
   {:ons_code => "E06000056", :name => "Central Bedfordshire", :region => "East", :population => "255219"}].each do |a|
 
     region = Area.find_by_name(a[:region])
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [region, england])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [region, england], :population => a[:population])
 
   end
 
@@ -160,7 +160,38 @@
     {:ons_code => "W06000022", :name => "Newport", :population => "141306"},
   ].each do |a|
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [wales])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [wales], :population => a[:population])
+
+  end
+
+  [{:ons_code => "95T", :name => "ANTRIM", :population => "54,145"},
+  {:ons_code => "95X", :name => "ARDS", :population => "78,248"},
+  {:ons_code => "95O", :name => "ARMAGH", :population => "59,441"},
+  {:ons_code => "95G", :name => "BALLYMENA", :population => "63,451"},
+  {:ons_code => "95D", :name => "BALLYMONEY", :population => "30,564"},
+  {:ons_code => "95Q", :name => "BANBRIDGE", :population => "47,955"},
+  {:ons_code => "95Z", :name => "BELFAST", :population => "268,745"},
+  {:ons_code => "95V", :name => "CARRICKFERGUS", :population => "40,158"},
+  {:ons_code => "95Y", :name => "CASTLEREAGH", :population => "67,029"},
+  {:ons_code => "95C", :name => "COLERAINE", :population => "56,790"},
+  {:ons_code => "95I", :name => "COOKSTOWN", :population => "36,655"},
+  {:ons_code => "95N", :name => "CRAIGAVON", :population => "93,623"},
+  {:ons_code => "95A", :name => "DERRY ", :population => "109,826"},
+  {:ons_code => "95R", :name => "DOWN", :population => "70,770"},
+  {:ons_code => "95M", :name => "DUNGANNON", :population => "57,748"},
+  {:ons_code => "95L", :name => "FERMANAGH", :population => "63,076"},
+  {:ons_code => "95F", :name => "LARNE", :population => "31,650"},
+  {:ons_code => "95B", :name => "LIMAVADY", :population => "33,564"},
+  {:ons_code => "95S", :name => "LISBURN", :population => "117,836"},
+  {:ons_code => "95H", :name => "MAGHERAFELT", :population => "44,730"},
+  {:ons_code => "95E", :name => "MOYLE", :population => "16,998"},
+  {:ons_code => "95P", :name => "NEWRY & MOURNE", :population => "99,880"},
+  {:ons_code => "95U", :name => "NEWTOWNABBEY", :population => "83,605"},
+  {:ons_code => "95W", :name => "NORTH DOWN", :population => "79,940"},
+  {:ons_code => "95K", :name => "OMAGH", :population => "52,866"},
+  {:ons_code => "95J", :name => "STRABANE", :population => "40,099"}].each do |a|
+
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [wales], :population => a[:population])
 
   end
 
@@ -502,6 +533,8 @@
     area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => sca, :parents => [scotland])
 
   end
+
+
 
   postcode = AreaType.create(:name => "Postcode")
   postcode_sector = AreaType.create(:name => "Postcode Sector")
