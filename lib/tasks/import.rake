@@ -47,13 +47,15 @@ namespace :postcodes do
         end
       end
 
+      existing_parent_areas = postcode_district.locations
       parent_areas.each do |parent_area|
-        postcode_district.parents << parent_area unless postcode_district.parents.include?(parent_area)
+        postcode_district.parents << parent_area unless existing_parent_areas.collect{|l| l.parent_id}.include?(parent_area.id)
       end
 
-      parent_areas << postcode_district
+    # Uncomment this to save full postcodes too (will take a LOT longer!)
+    #  parent_areas << postcode_district
 
-      postcode = Area.create(:name => pc.gsub(" ", ""), :area_type => postcode_type, :parents => parent_areas)
+     # postcode = Area.create(:name => pc.gsub(" ", ""), :area_type => postcode_type, :parents => parent_areas)
 
       puts counter
       counter = counter + 1

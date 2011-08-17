@@ -12,8 +12,12 @@ class Area < ActiveRecord::Base
   has_many :other_names
 
   scope :regions, joins(:area_type).where(:area_types => {:name => "Region"})
-  scope :post_code_areas, joins(:area_type).where(:area_types => {:name => "Postcode Area"})
-  scope :post_code_districts, joins(:area_type).where(:area_types => {:name => "Postcode District"})
+  scope :postcode_areas, joins(:area_type).where(:area_types => {:name => "Postcode Area"})
+  scope :postcode_districts, joins(:area_type).where(:area_types => {:name => "Postcode District"})
+  scope :unitary_authorities, joins(:area_type).where(:area_types => {:name => "Unitary Authority"})
+  scope :countries, joins(:area_type).where(:area_types => {:name => "Country"})
+  scope :regions_or_countries, joins(:area_type).where(:area_types => {:name => ["Country", "Region"]}).where(["areas.name <> ?", "England"])
+  scope :top_tier_local_authorities, joins(:area_type).where(:area_types => {:name => ["Unitary Authority", "County", "Metropolitan District", "London Borough", "Scottish Council Area"]})
 
   accepts_nested_attributes_for :parents, :other_names
 

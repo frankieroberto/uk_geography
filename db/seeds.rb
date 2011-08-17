@@ -135,6 +135,35 @@
 
   end
 
+  [
+    {:ons_code => "W06000001", :name => "Isle of Anglesey", :population => "68592"},
+    {:Ons_Code => "W06000002", :Name => "Gwynedd", :Population => "119007"},
+    {:ons_code => "W06000003", :name => "Conwy", :population => "110863"},
+    {:ons_code => "W06000004", :name => "Denbighshire", :population => "96731"},
+    {:ons_code => "W06000005", :name => "Flintshire", :population => "149709"},
+    {:ons_code => "W06000006", :name => "Wrexham", :population => "33559"},
+    {:ons_code => "W06000023", :name => "Powys", :population => "131313"},
+    {:ons_code => "W06000008", :name => "Ceredigion", :population => "76938"},
+    {:ons_code => "W06000009", :name => "Pembrokeshire", :population => "117086"},
+    {:ons_code => "W06000010", :name => "Carmarthenshire", :population => "180717"},
+    {:ons_code => "W06000011", :name => "Swansea", :population => "232501"},
+    {:ons_code => "W06000012", :name => "Neath Port Talbot", :population => "137392"},
+    {:ons_code => "W06000013", :name => "Bridgend", :population => "134564"},
+    {:ons_code => "W06000014", :name => "The Vale of Glamorgan", :population => "124976"},
+    {:ons_code => "W06000015", :name => "Cardiff", :population => "341054"},
+    {:ons_code => "W06000016", :name => "Rhondda, Cynon, Taff", :population => "234309"},
+    {:ons_code => "W06000024", :name => "Merthyr Tydfil", :population => "55699"},
+    {:ons_code => "W06000018", :name => "Caerphilly", :population => "173124"},
+    {:ons_code => "W06000019", :name => "Blaenau Gwent", :population => "68368"},
+    {:ons_code => "W06000020", :name => "Torfaen", :population => "90533"},
+    {:ons_code => "W06000021", :name => "Monmouthshire", :population => "88089"},
+    {:ons_code => "W06000022", :name => "Newport", :population => "141306"},
+  ].each do |a|
+
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [wales])
+
+  end
+
 
   nmd = AreaType.create(:name => "Non-metropolitan District")
 
