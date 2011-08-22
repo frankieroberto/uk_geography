@@ -18,6 +18,7 @@ class Area < ActiveRecord::Base
   scope :countries, joins(:area_type).where(:area_types => {:name => "Country"})
   scope :regions_or_countries, joins(:area_type).where(:area_types => {:name => ["Country", "Region"]}).where(["areas.name <> ?", "England"])
   scope :top_tier_local_authorities, joins(:area_type).where(:area_types => {:name => ["Unitary Authority", "County", "Metropolitan District", "London Borough", "Scottish Council Area"]})
+  scope :counties, joins(:area_type).where(:area_types => {:name => "County"})
 
   accepts_nested_attributes_for :parents, :other_names
 

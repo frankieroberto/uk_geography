@@ -2,10 +2,10 @@
   # Countries
   country = AreaType.create(:name => "Country")
 
-  england = Area.create(:name => "England", :ons_code => "E92000001", :area_type => country, :population => "52234045")
-  scotland = Area.create(:name => "Scotland", :ons_code => "S92000003", :area_type => country, :population => "5222100")
-  wales = Area.create(:name => "Wales", :ons_code => "W92000004", :area_type => country, :population => "3006430")
-  northern_ireland = Area.create(:name => "Northern Ireland", :ons_code => "N92000002", :area_type => country, :population => "1799392")
+  england = Area.create(:name => "England", :ons_code => "E92000001", :area_type => country, :population => 52234045)
+  scotland = Area.create(:name => "Scotland", :ons_code => "S92000003", :area_type => country, :population => 5222100)
+  wales = Area.create(:name => "Wales", :ons_code => "W92000004", :area_type => country, :population => 3006430)
+  northern_ireland = Area.create(:name => "Northern Ireland", :ons_code => "N92000002", :area_type => country, :population => 1799392)
 
   # English Regions
   region = AreaType.create(:name => "Region")
@@ -31,42 +31,44 @@
   # English Counties
   county = AreaType.create(:name => "County")
 
-  [{:ons_code => "E10000001", :name => "Bedfordshire", :population => 416016},
-  {:ons_code => "E10000002", :name => "Buckinghamshire", :population => 498072},
-  {:ons_code => "E10000003", :name => "Cambridgeshire", :population => 616282},
-  {:ons_code => "E10000004", :name => "Cheshire", :population => 691120},
-  {:ons_code => "E10000005", :name => "Cornwall and Isles of Scilly", :population => 537445},
-  {:ons_code => "E10000006", :name => "Cumbria", :population => 494350},
-  {:ons_code => "E10000007", :name => "Derbyshire", :population => 763724},
-  {:ons_code => "E10000008", :name => "Devon", :population => 749944},
-  {:ons_code => "E10000009", :name => "Dorset", :population => 404789},
-  {:ons_code => "E10000010", :name => "Durham", :population => 510804},
-  {:ons_code => "E10000011", :name => "East Sussex", :population => 515522},
-  {:ons_code => "E10000012", :name => "Essex", :population => 1413025},
-  {:ons_code => "E10000013", :name => "Gloucestershire", :population => 593527},
-  {:ons_code => "E10000014", :name => "Hampshire", :population => 1296814},
-  {:ons_code => "E10000015", :name => "Hertfordshire", :population => 1107521},
-  {:ons_code => "E10000016", :name => "Kent", :population => 1427418},
-  {:ons_code => "E10000017", :name => "Lancashire", :population => 1169270},
-  {:ons_code => "E10000018", :name => "Leicestershire", :population => 648748},
-  {:ons_code => "E10000019", :name => "Lincolnshire", :population => 703008},
-  {:ons_code => "E10000020", :name => "Norfolk", :population => 862346},
-  {:ons_code => "E10000021", :name => "Northamptonshire", :population => 687319},
-  {:ons_code => "E10000022", :name => "Northumberland", :population => 311991},
-  {:ons_code => "E10000023", :name => "North Yorkshire", :population => 599708},
-  {:ons_code => "E10000024", :name => "Nottinghamshire", :population => 779890},
-  {:ons_code => "E10000025", :name => "Oxfordshire", :population => 648722},
-  {:ons_code => "E10000026", :name => "Shropshire", :population => 293378},
-  {:ons_code => "E10000027", :name => "Somerset", :population => 525186},
-  {:ons_code => "E10000028", :name => "Staffordshire", :population => 831290},
-  {:ons_code => "E10000029", :name => "Suffolk", :population => 719511},
-  {:ons_code => "E10000030", :name => "Surrey", :population => 1127322},
-  {:ons_code => "E10000031", :name => "Warwickshire", :population => 535982},
-  {:ons_code => "E10000032", :name => "West Sussex", :population => 799701},
-  {:ons_code => "E10000033", :name => "Wiltshire", :population => 459835},
-  {:ons_code => "E10000034", :name => "Worcestershire", :population => 557426}].each do |a|
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => county, :population => a[:population])
-    area.parents << england
+  [
+  {:ons_code => "E10000001", :name => "Bedfordshire", :population => 416016, :region => "East"},
+  {:ons_code => "E10000002", :name => "Buckinghamshire", :population => 498072, :region => "South East"},
+  {:ons_code => "E10000003", :name => "Cambridgeshire", :population => 616282, :region => "East"},
+  {:ons_code => "E10000004", :name => "Cheshire", :population => 691120, :region => "North West"},
+  {:ons_code => "E10000005", :name => "Cornwall and Isles of Scilly", :population => 537445, :region => "South West"},
+  {:ons_code => "E10000006", :name => "Cumbria", :population => 494350, :region => "North West"},
+  {:ons_code => "E10000007", :name => "Derbyshire", :population => 763724, :region => "East Midlands"},
+  {:ons_code => "E10000008", :name => "Devon", :population => 749944, :region => "South West"},
+  {:ons_code => "E10000009", :name => "Dorset", :population => 404789, :region => "South West"},
+  {:ons_code => "E10000010", :name => "Durham", :population => 510804, :region => "North East"},
+  {:ons_code => "E10000011", :name => "East Sussex", :population => 515522, :region => "South East"},
+  {:ons_code => "E10000012", :name => "Essex", :population => 1413025, :region => "East"},
+  {:ons_code => "E10000013", :name => "Gloucestershire", :population => 593527, :region => "South West"},
+  {:ons_code => "E10000014", :name => "Hampshire", :population => 1296814, :region => "South East"},
+  {:ons_code => "E10000015", :name => "Hertfordshire", :population => 1107521, :region => "East"},
+  {:ons_code => "E10000016", :name => "Kent", :population => 1427418, :region => "South East"},
+  {:ons_code => "E10000017", :name => "Lancashire", :population => 1169270, :region => "North West"},
+  {:ons_code => "E10000018", :name => "Leicestershire", :population => 648748, :region => "East Midlands"},
+  {:ons_code => "E10000019", :name => "Lincolnshire", :population => 703008, :region => "East Midlands"},
+  {:ons_code => "E10000020", :name => "Norfolk", :population => 862346, :region => "East"},
+  {:ons_code => "E10000021", :name => "Northamptonshire", :population => 687319, :region => "East Midlands"},
+  {:ons_code => "E10000022", :name => "Northumberland", :population => 311991, :region => "North East"},
+  {:ons_code => "E10000023", :name => "North Yorkshire", :population => 599708, :region => "Yorkshire and The Humber"},
+  {:ons_code => "E10000024", :name => "Nottinghamshire", :population => 779890, :region => "East Midlands"},
+  {:ons_code => "E10000025", :name => "Oxfordshire", :population => 648722, :region => "South East"},
+  {:ons_code => "E10000026", :name => "Shropshire", :population => 293378, :region => "West Midlands"},
+  {:ons_code => "E10000027", :name => "Somerset", :population => 525186, :region => "South West"},
+  {:ons_code => "E10000028", :name => "Staffordshire", :population => 831290, :region => "West Midlands"},
+  {:ons_code => "E10000029", :name => "Suffolk", :population => 719511, :region => "East"},
+  {:ons_code => "E10000030", :name => "Surrey", :population => 1127322, :region => "South East"},
+  {:ons_code => "E10000031", :name => "Warwickshire", :population => 535982, :region => "West Midlands"},
+  {:ons_code => "E10000032", :name => "West Sussex", :population => 799701, :region => "South East"},
+  {:ons_code => "E10000033", :name => "Wiltshire", :population => 459835, :region => "South West"},
+  {:ons_code => "E10000034", :name => "Worcestershire", :population => 557426, :region => "West Midlands"}
+  ].each do |a|
+    region = Area.find_by_name!(a[:region])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => county, :population => a[:population], :parents => [region, england])
   end
 
 
@@ -130,14 +132,14 @@
   {:ons_code => "E06000055", :name => "Bedford", :region => "East", :population => "160797"},
   {:ons_code => "E06000056", :name => "Central Bedfordshire", :region => "East", :population => "255219"}].each do |a|
 
-    region = Area.find_by_name(a[:region])
+    region = Area.find_by_name!(a[:region])
     area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [region, england], :population => a[:population])
 
   end
 
   [
     {:ons_code => "W06000001", :name => "Isle of Anglesey", :population => "68592"},
-    {:Ons_Code => "W06000002", :Name => "Gwynedd", :Population => "119007"},
+    {:ons_Code => "W06000002", :Name => "Gwynedd", :Population => "119007"},
     {:ons_code => "W06000003", :name => "Conwy", :population => "110863"},
     {:ons_code => "W06000004", :name => "Denbighshire", :population => "96731"},
     {:ons_code => "W06000005", :name => "Flintshire", :population => "149709"},
@@ -164,34 +166,36 @@
 
   end
 
-  [{:ons_code => "95T", :name => "ANTRIM", :population => "54,145"},
-  {:ons_code => "95X", :name => "ARDS", :population => "78,248"},
-  {:ons_code => "95O", :name => "ARMAGH", :population => "59,441"},
-  {:ons_code => "95G", :name => "BALLYMENA", :population => "63,451"},
-  {:ons_code => "95D", :name => "BALLYMONEY", :population => "30,564"},
-  {:ons_code => "95Q", :name => "BANBRIDGE", :population => "47,955"},
-  {:ons_code => "95Z", :name => "BELFAST", :population => "268,745"},
-  {:ons_code => "95V", :name => "CARRICKFERGUS", :population => "40,158"},
-  {:ons_code => "95Y", :name => "CASTLEREAGH", :population => "67,029"},
-  {:ons_code => "95C", :name => "COLERAINE", :population => "56,790"},
-  {:ons_code => "95I", :name => "COOKSTOWN", :population => "36,655"},
-  {:ons_code => "95N", :name => "CRAIGAVON", :population => "93,623"},
-  {:ons_code => "95A", :name => "DERRY ", :population => "109,826"},
-  {:ons_code => "95R", :name => "DOWN", :population => "70,770"},
-  {:ons_code => "95M", :name => "DUNGANNON", :population => "57,748"},
-  {:ons_code => "95L", :name => "FERMANAGH", :population => "63,076"},
-  {:ons_code => "95F", :name => "LARNE", :population => "31,650"},
-  {:ons_code => "95B", :name => "LIMAVADY", :population => "33,564"},
-  {:ons_code => "95S", :name => "LISBURN", :population => "117,836"},
-  {:ons_code => "95H", :name => "MAGHERAFELT", :population => "44,730"},
-  {:ons_code => "95E", :name => "MOYLE", :population => "16,998"},
-  {:ons_code => "95P", :name => "NEWRY & MOURNE", :population => "99,880"},
-  {:ons_code => "95U", :name => "NEWTOWNABBEY", :population => "83,605"},
-  {:ons_code => "95W", :name => "NORTH DOWN", :population => "79,940"},
-  {:ons_code => "95K", :name => "OMAGH", :population => "52,866"},
-  {:ons_code => "95J", :name => "STRABANE", :population => "40,099"}].each do |a|
+  [
+  {:ons_code => "95T", :name => "Antrim", :population => 54145},
+  {:ons_code => "95X", :name => "Ards", :population => 78248},
+  {:ons_code => "95O", :name => "Armagh", :population => 59441},
+  {:ons_code => "95G", :name => "Ballymena", :population => 63451},
+  {:ons_code => "95D", :name => "Ballymoney", :population => 30564},
+  {:ons_code => "95Q", :name => "Banbridge", :population => 47955},
+  {:ons_code => "95Z", :name => "Belfast", :population => 268745},
+  {:ons_code => "95V", :name => "Carrickfergus", :population => 40158},
+  {:ons_code => "95Y", :name => "Castlereagh", :population => 67029},
+  {:ons_code => "95C", :name => "Coleraine", :population => 56790},
+  {:ons_code => "95I", :name => "Cookstown", :population => 36655},
+  {:ons_code => "95N", :name => "Craigavon", :population => 93623},
+  {:ons_code => "95A", :name => "Derry", :population => 109826},
+  {:ons_code => "95R", :name => "Down", :population => 70770},
+  {:ons_code => "95M", :name => "Dungannon", :population => 57748},
+  {:ons_code => "95L", :name => "Fermanagh", :population => 63076},
+  {:ons_code => "95F", :name => "Larne", :population => 31650},
+  {:ons_code => "95B", :name => "Limavady", :population => 33564},
+  {:ons_code => "95S", :name => "Lisburn", :population => 117836},
+  {:ons_code => "95H", :name => "Magherafelt", :population => 44730},
+  {:ons_code => "95E", :name => "Moyle", :population => 16998},
+  {:ons_code => "95P", :name => "Newry & Mourne", :population => 99880},
+  {:ons_code => "95U", :name => "Newtownabbey", :population => 83605},
+  {:ons_code => "95W", :name => "North Down", :population => 79940},
+  {:ons_code => "95K", :name => "Omagh", :population => 52866},
+  {:ons_code => "95J", :name => "Strabane", :population => 40099}
+  ].each do |a|
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [wales], :population => a[:population])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => ua, :parents => [northern_ireland], :population => a[:population])
 
   end
 
