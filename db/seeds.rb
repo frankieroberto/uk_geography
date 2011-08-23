@@ -407,7 +407,7 @@
   ].each do |a|
 
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => nmd, :parents => [
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => nmd, :population => a[:population], :parents => [
       england,
       Area.find_by_name!(a[:region]),
       Area.find_by_name!(a[:county])
@@ -455,7 +455,7 @@
   {:ons_code => "E08000035", :name => "Leeds", :region => "Yorkshire and The Humber", :population => 798769},
   {:ons_code => "E08000036", :name => "Wakefield", :region => "Yorkshire and The Humber", :population => 325573}].each do |a|
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => md, :parents => [england, Area.find_by_name!(a[:region])])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => md, :population => a[:population], :parents => [england, Area.find_by_name!(a[:region])])
 
   end
 
@@ -497,7 +497,7 @@
   {:ons_code => "E09000033", :name => "Westminster", :population => 253112}
   ].each do |a|
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => lb, :parents => [england, london])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => lb, :population => a[:population], :parents => [england, london])
 
   end
 
@@ -537,7 +537,7 @@
   {:ons_code => "S12000044", :name => "North Lanarkshire", :population => 326360}
   ].each do |a|
 
-    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :area_type => sca, :parents => [scotland])
+    area = Area.create(:ons_code => a[:ons_code], :name => a[:name], :population => a[:population], :area_type => sca, :parents => [scotland])
 
   end
 
