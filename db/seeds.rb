@@ -547,3 +547,26 @@
   postcode_sector = AreaType.create(:name => "Postcode Sector")
   postcode_area = AreaType.create(:name => "Postcode Area")
   postcode_district = AreaType.create(:name => "Postcode District")
+
+  bbc_region = AreaType.create(:name => "BBC Region")
+
+  [
+    {:ref => "503", :name => "East of England"},
+    {:ref => "504", :name => "West"},
+    {:ref => "505", :name => "South West"},
+    {:ref => "506", :name => "South"},
+    {:ref => "507", :name => "Yorkshire and Lincolnshire"},
+    {:ref => "508", :name => "North East and Cumbria"},
+    {:ref => "509", :name => "North West"},
+    {:ref => "510", :name => "Scotland"},
+    {:ref => "511", :name => "Ulster"},
+    {:ref => "512", :name => "Wales"},
+    {:ref => "513", :name => "West Midlands"},
+    {:ref => "514", :name => "East Midlands"},
+    {:ref => "515", :name => "London"},
+    {:ref => "516", :name => "South East"}
+  ].each do |a|
+
+    Area.create(:ref => a[:ref], :name => a[:name], :area_type => bbc_region)
+  end
+
