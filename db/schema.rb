@@ -14,16 +14,16 @@ ActiveRecord::Schema.define(:version => 20111023144714) do
 
   create_table "area_types", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "area_type_id"
     t.integer  "population"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "ons_code"
     t.string   "ref"
   end
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20111023144714) do
     t.integer  "area_id"
     t.integer  "parent_id"
     t.boolean  "is_partial"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "locations", ["parent_id"], :name => "index_locations_on_parent_id"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20111023144714) do
   create_table "other_names", :force => true do |t|
     t.string   "name"
     t.integer  "area_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
