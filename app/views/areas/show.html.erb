@@ -1,7 +1,20 @@
 
 <article>
-  <h1><%= @area.name %></h1> is a <%= @area.area_type.name %><% if @area.parents.size > 0 %> within <% end %><%= @area.parents.collect{ |parent| link_to(parent.name, parent.name)}.to_sentence.html_safe %> <%= "with a population of " + rounded_population(@area.population) if @area.population %>.
+  <header>
+    <hgroup>
+      <h1><%= @area.name %></h1>
+    </hgroup>
+     A <%= @area.area_type.name %>
+  </header>
 
-<% if @area.ons_code %><p class="code">It has an <abbr title="Office for National Statistics">ONS</abbr> code of <%= @area.ons_code %></p><% end %>
+  <table>
+    <tr><th>Population</th><td><%= rounded_population(@area.population) if @area.population %></td></tr>
+  </table>
+
+  <% if @area.parents.size > 0 %><p>Lies within <%= @area.parents.collect{ |parent| link_to(parent.name, parent.name)}.to_sentence.html_safe %><% end %>
+
+  <footer>
+    <% if @area.ons_code %><p class="code"><abbr title="Office for National Statistics">ONS</abbr> code: <%= @area.ons_code %></p><% end %>
+  </footer>
 </article>
 
