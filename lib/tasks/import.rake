@@ -1,6 +1,6 @@
 
 require 'csv'
-require 'iconv'
+#require 'iconv'
 
 
 namespace :postcodes do
